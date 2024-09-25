@@ -10,7 +10,18 @@
 
 
         <properties>
-            <property name="hibernate.archive.autodetection" value="class" />
+	    <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://dpg-crq52352ng1s73e2kkg0-a/copiamedb_kx3p" />
+            <!-- Usuario y contraseña de la base de datos -->
+            <property name="javax.persistence.jdbc.user" value="marcos_user" />
+            <property name="javax.persistence.jdbc.password" value="123" />
+            <!-- Driver de PostgreSQL -->
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+           
+     	    <!-- Dialecto de Hibernate para PostgreSQL -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+	   
+	    <property name="hibernate.hbm2ddl.auto" value="create" />
+	    <property name="hibernate.archive.autodetection" value="class" />
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
             <property name="use_sql_comments" value="true" />
