@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         // Define SonarQube Scanner tool
-        sonarScanner 'SonarQubeScanner'
+        sonarRunner 'sonarqube'  // Usa el nombre configurado
     }
 
     stages {  
@@ -54,10 +54,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo "Implementar en un futuro el deploy"
-                // dir('dds-deploy') {
-                //     sh "docker compose down -v"
-                //     sh "docker compose up -d --build"
-                // }
             }
         }
     }
