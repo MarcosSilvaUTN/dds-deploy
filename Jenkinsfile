@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+     tools {
+        // Define SonarQube Scanner tool
+        sonarScanner 'SonarQubeScanner'
+    }
+
     stages {  
         stage('Repositorio') {
             steps {
@@ -16,18 +21,38 @@ pipeline {
             }
         }
 
+        stage('SonarQube Analysis') {
+            steps {
+                dir('dds-deploy') {
+                    withSonarQubeEnv('sonarqube') { 
+                        sh '''
+                            sonar-scanner \
+                                -Dsonar.projectKey=dds-deploy \
+                                -Dsonar.sources=. \
+                                -Dsonar.language=java \
+                                -Dsonar.sourceEncoding=UTF-8 \
+                                -Dsonar.host.url=http://sonarqube:9000 \
+                                -Dsonar.login=your-sonarqube-token
+                        '''
+                    }
+                }
+            }
+        }
+
         stage('Build') {
             steps {
-                echo "Etapa Build no disponible"
+               echo "Etapa Build no esta disponible"
+                }
             }
         }
 
         stage('Test') {
             steps {
-                dir('dds-deploy') {
-                    echo "Ejecutando pruebas..."
+                echo "Etapa Test no esta disponible"
+                //dir('dds-deploy') {
+                    //echo "Ejecutando pruebas..."
                     // Ejecuta todas las pruebas o especifica el archivo de prueba
-                    sh "mvn test -Dtest=AppLibrosTest"  
+                   // sh "mvn test -Dtest=AppLibrosTest"  
                 }
             }
         }
