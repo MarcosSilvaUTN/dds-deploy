@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                sh "https://github.com/MarcosSilvaUTN/dds-deploy.git"
+                sh "git clone https://github.com/MarcosSilvaUTN/dds-deploy.git"
             }
         }
 
@@ -22,8 +22,10 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh "docker compose down -v"
-                sh "docker compose up -d --build"
+                dir('dds-deploy') {
+                    sh "docker compose down -v"
+                    sh "docker compose up -d --build"
+                }
             }
         }
     }
