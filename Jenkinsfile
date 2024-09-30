@@ -1,22 +1,30 @@
-Pipeline{
-  agent any
+pipeline {
+    agent any
 
-  stages{
-      stage('Build'){
-          steps{
-              echo "Estapa Build no disponible"
-          }
+    stages {
+        stage('Clone Repo') {
+            steps {
+                sh "https://github.com/MarcosSilvaUTN/dds-deploy.git"
+            }
+        }
 
-      stage('Test'){
-          steps{
-              echo "Estapa Test no disponible"
-          }
-      } 
-        
-      stage('Deploy'){
-          steps{
-              sh "docker compose down -v"
-              sh "docker compose up -d --build"
-          }
-  }
+        stage('Build') {
+            steps {
+                echo "Etapa Build no disponible"
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo "Etapa Test no disponible"
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh "docker compose down -v"
+                sh "docker compose up -d --build"
+            }
+        }
+    }
 }
