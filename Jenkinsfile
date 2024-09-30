@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        // Define SonarQube Scanner tool
-        sonarScanner 'SonarQubeScanner'  // Usa el nombre configurado
-    }
-
     stages {  
         stage('Repositorio') {
             steps {
