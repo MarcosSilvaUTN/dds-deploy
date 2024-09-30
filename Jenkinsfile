@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-     tools {
+    tools {
         // Define SonarQube Scanner tool
         sonarScanner 'SonarQubeScanner'
     }
@@ -41,19 +41,13 @@ pipeline {
 
         stage('Build') {
             steps {
-               echo "Etapa Build no esta disponible"
-                }
+                echo "Etapa Build no está disponible"
             }
         }
 
         stage('Test') {
             steps {
-                echo "Etapa Test no esta disponible"
-                //dir('dds-deploy') {
-                    //echo "Ejecutando pruebas..."
-                    // Ejecuta todas las pruebas o especifica el archivo de prueba
-                   // sh "mvn test -Dtest=AppLibrosTest"  
-                }
+                echo "Etapa Test no está disponible"
             }
         }
 
