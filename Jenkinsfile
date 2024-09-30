@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         // Define SonarQube Scanner tool
-        sonarScanner 'sonarqube'  // Usa el nombre configurado
+        sonarScanner 'SonarQubeScanner'  // Usa el nombre configurado
     }
 
     stages {  
