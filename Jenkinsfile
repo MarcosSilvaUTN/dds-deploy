@@ -24,7 +24,11 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo "Etapa Test no disponible"
+                dir('dds-deploy') {
+                    echo "Ejecutando pruebas..."
+                    // Ejecuta todas las pruebas o especifica el archivo de prueba
+                    sh "mvn test -Dtest=AppLibrosTest"  
+                }
             }
         }
 
