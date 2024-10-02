@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-libros-deployment
+  labels:
+    app: app-libros
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app-libros
+  template:
+    metadata:
+      labels:
+        app: app-libros
+    spec:
+      containers:
+      - name: app-libros-conteiner
+        image: msilvamaidana123/dds-deploy:latest
+        ports:
+        - containerPort: 80
+        
+        
